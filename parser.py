@@ -6,8 +6,6 @@ class HeaderParser:
     def __init__(self):
         # Create ChromiumOptions instance
         co = ChromiumOptions().headless()
-        co.set_no_sandbox()
-        co.set_disable_gpu()
 
         self.page = ChromiumPage(chromium_options=co)
         
