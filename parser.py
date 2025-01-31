@@ -28,7 +28,7 @@ class HeaderParser:
         """Make a request using DrissionPage and save HTML content to file"""
         try:
             self.page.get(url)
-            time.sleep(5)
+            time.sleep(15)
             html_content = self.page.html
             with open('result.txt', 'w', encoding='utf-8') as f:
                 f.write(html_content)
