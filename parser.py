@@ -6,14 +6,10 @@ class HeaderParser:
     def __init__(self):
         # Create ChromiumOptions instance
         co = ChromiumOptions().headless()
-
-        
-        # Configure headless mode and other necessary options
         co.set_no_sandbox()
         co.set_disable_gpu()
-        
-        # Initialize ChromiumPage with the configured options
-        self.page = ChromiumPage(chromium_options=co)
+
+        self.page = Chromium(chromium_options=co)
         
         # Set headers
         self.page.set.headers({
@@ -44,10 +40,6 @@ class HeaderParser:
             print(f"Error making request: {e}")
             return False
             
-    def __del__(self):
-        """Cleanup when object is destroyed"""
-        self.page.quit()
-
 def main():
     parser = HeaderParser()
     url = "https://dexscreener.com/?rankBy=trendingScoreH6&order=desc&chainIds=solana&dexIds=raydium,meteora&minLiq=1000&minMarketCap=3000000&maxAge=24&min24HVol=10000000"
