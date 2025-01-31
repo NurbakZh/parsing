@@ -1,10 +1,21 @@
 from urllib.parse import urlparse, parse_qs
-from DrissionPage import ChromiumPage
+from DrissionPage import ChromiumPage, ChromiumOptions
 import time
 
 class HeaderParser:
     def __init__(self):
-        self.page = ChromiumPage()
+        # Create ChromiumOptions instance
+        co = ChromiumOptions()
+        
+        # Configure headless mode and other necessary options
+        co.set_headless(True)
+        co.set_no_sandbox()
+        co.set_disable_gpu()
+        
+        # Initialize ChromiumPage with the configured options
+        self.page = ChromiumPage(chromium_options=co)
+        
+        # Set headers
         self.page.set.headers({
             'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
             'Accept-Language': 'en-US,en;q=0.9,ru;q=0.8',
