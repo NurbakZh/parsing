@@ -7,7 +7,7 @@ class HeaderParser:
         # Create ChromiumOptions instance
         co = ChromiumOptions().headless()
 
-        self.page = ChromiumPage(chromium_options=co)
+        self.page = ChromiumPage(co)
         
         # Set headers
         self.page.set.headers({
