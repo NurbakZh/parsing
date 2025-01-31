@@ -5,10 +5,10 @@ import time
 class HeaderParser:
     def __init__(self):
         # Create ChromiumOptions instance
-        co = ChromiumOptions()
+        co = ChromiumOptions().headless()
+
         
         # Configure headless mode and other necessary options
-        co.set_headless(True)
         co.set_no_sandbox()
         co.set_disable_gpu()
         
