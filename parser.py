@@ -6,8 +6,8 @@ class HeaderParser:
     def __init__(self):
         # Create ChromiumOptions instance
         co = ChromiumOptions().headless()
-        co.add_argument('--no-sandbox')
-        co.add_argument('--headless=new')
+        co.set_argument('--no-sandbox')
+        co.set_argument('--headless=new')
 
         self.page = ChromiumPage(co)
         
